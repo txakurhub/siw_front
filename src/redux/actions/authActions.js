@@ -1,5 +1,5 @@
 import axios from "axios";
-import { URL_BACK } from "../config/config";
+import { URL_BACK } from "../../config/config";
 import {
   GET_USER_PENDING,
   GET_USER_REJECTED,
