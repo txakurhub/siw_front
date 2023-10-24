@@ -21,6 +21,7 @@ export const login = (payload) => {
     dispatch({ type: LOGIN_USER_PENDING });
     try {
       const { data } = await axios.post(`${URL_BACK + AUTH}/login`, payload);
+      localStorage.setItem("userData", data && JSON.stringify(data));
       return dispatch({ type: LOGIN_USER_SUCCESS, payload: data });
     } catch (error) {
       return dispatch({ type: LOGIN_USER_REJECTED, payload: error.response });
