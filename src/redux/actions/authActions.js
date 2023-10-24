@@ -45,7 +45,7 @@ export const signup = (payload) => {
   return async function (dispatch) {
     dispatch({ type: SIGNUP_USER_PENDING });
     try {
-      const { data } = await axios.post(`${URL_BACK + AUTH}/signup`, payload);
+      const { data } = await axios.post(`${URL_BACK}${AUTH}/signup`, payload);
       return dispatch({ type: SIGNUP_USER_SUCCESS, payload: data });
     } catch (error) {
       return dispatch({ type: SIGNUP_USER_REJECTED, payload: error.response });
