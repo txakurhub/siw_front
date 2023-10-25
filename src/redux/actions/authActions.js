@@ -21,6 +21,7 @@ export const login = (payload) => {
     dispatch({ type: LOGIN_USER_PENDING });
     try {
       const { data } = await axios.post(`${URL_BACK + AUTH}/login`, payload);
+      console.log(data);
       localStorage.setItem("userData", data && JSON.stringify(data));
       return dispatch({ type: LOGIN_USER_SUCCESS, payload: data });
     } catch (error) {
@@ -46,6 +47,8 @@ export const signup = (payload) => {
     dispatch({ type: SIGNUP_USER_PENDING });
     try {
       const { data } = await axios.post(`${URL_BACK}${AUTH}/signup`, payload);
+      console.log(data);
+      localStorage.setItem("userData", data && JSON.stringify(data));
       return dispatch({ type: SIGNUP_USER_SUCCESS, payload: data });
     } catch (error) {
       return dispatch({ type: SIGNUP_USER_REJECTED, payload: error.response });

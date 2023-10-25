@@ -14,7 +14,7 @@ export const getTickets = () => {
   return async function (dispatch) {
     dispatch({ type: GET_TICKETS_PENDING });
     try {
-      const { data } = axios.get(`${URL_BACK + TICKET}`);
+      const { data } = await axios.get(`${URL_BACK}${TICKET}`);
       return dispatch({ type: GET_TICKETS_SUCCESS, payload: data });
     } catch (error) {
       return dispatch({ type: GET_TICKETS_REJECTED, payload: error.response });
