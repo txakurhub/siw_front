@@ -34,7 +34,8 @@ export const updateUser = (payload) => {
   return async function (dispatch) {
     dispatch({ type: UPDATE_USER_PENDING });
     try {
-      const { data } = await axios.put(`${URL_BACK + AUTH}/update`, payload);
+      const { data } = await axios.put(`${URL_BACK}${AUTH}/update`, payload);
+      localStorage.setItem("userData", data && JSON.stringify(data.user));
       return dispatch({ type: UPDATE_USER_SUCCESS, payload: data });
     } catch (error) {
       return dispatch({ type: UPDATE_USER_REJECTED, payload: error.response });
