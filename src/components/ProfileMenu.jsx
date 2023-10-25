@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 const ProfileMenu = () => {
-  const userData = JSON.parse(localStorage.getItem("userData"));
-
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    navigate("/");
+  };
   return (
     <div className="relative">
       <button onClick={() => setIsOpen(!isOpen)}>
@@ -15,18 +18,18 @@ const ProfileMenu = () => {
       {isOpen && (
         <div className="absolute mt-2 py-2 w-52 -right-2 gap-5 bg-blue-300  ">
           <div className="flex flex-col w-full">
-            <div className="flex flex-col items-center justify-center duration-300 py-4 hover:bg-blue-100">
-              <h4 className="self-start pl-5">Nombre de usuario</h4>
-              <h4 className="font-bold self-end pr-5"> {userData?.username}</h4>
-            </div>
-            <div className="flex flex-col items-center justify-center duration-300 py-4 hover:bg-blue-100">
-              <h4 className="self-start pl-5">Email </h4>
-              <h4 className="font-bold self-end pr-5"> {userData?.email}</h4>
-            </div>
-            <div className="flex flex-col items-center justify-center duration-300 py-4 hover:bg-blue-100">
-              <h4 className="self-start pl-5">Id </h4>
-              <h4 className="font-bold self-end pr-5"> {userData?.newUser.id}</h4>
-            </div>
+            <a
+              href="/dash/profile"
+              className="flex flex-col items-center justify-center duration-300 py-2 hover:bg-blue-100"
+            >
+              <p className="font-bold">Perfil</p>
+            </a>
+            <button
+              onClick={handleLogout}
+              className="flex flex-col items-center justify-center duration-300 py-2 hover:bg-blue-100"
+            >
+              <p className="font-bold">Cerrar sesión</p>
+            </button>
           </div>
         </div>
       )}
