@@ -47,7 +47,7 @@ El proyecto consta de una aplicación web que permite a los usuarios, registrars
 ### 2. Casos de Uso
 
 ### Caso de Uso 1: Ordenamientos
-El usuario puede ordenar la tabla, por cada item ya sea idFactura, Cliente, Fecha o Total.
+El usuario puede ordenar la tabla, por cada item ya sea idFactura, Cliente, Fecha o Total con sólo hacer click en cada título.
 
 ### Caso de Uso 2: Visualización de Datos del Usuario
 
@@ -61,7 +61,7 @@ El usuario puede cerrar sesión y volver a la pantalla de inicio (Landing).
 
 ### 4. Escenarios de Error
 
-En caso de no poseer credenciales para el ingreso el usuario no podrá visualizar la tabla con datos de facturas. El sistema muestra el error en el cuadro de inicio de sesión.
-En caso de no haber datos de facturas cargadas, el sistema muestra un mensaje indicando el escenario.
+En caso de no poseer credenciales para el ingreso el usuario no podrá visualizar la tabla con datos de facturas. El sistema muestra el error en el cuadro de inicio de sesión. <br/>
+En caso de no haber datos de facturas cargadas, el sistema muestra un mensaje indicando el escenario.<br/>
 Si no se logra editar la información del usuario satisfactoriamente, el sistema muestra una alerta indicando el fallo.
 
