@@ -27,7 +27,7 @@ const EditForm = ({ userData }) => {
     ).then((res) => {
       if (res.type === UPDATE_USER_SUCCESS) {
         alert("Perfil actualizado exitosamente");
-        navigate(-1);
+        navigate("/dash");
       } else {
         alert("Hubo un error al actualizar los datos");
       }

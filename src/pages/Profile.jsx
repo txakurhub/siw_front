@@ -14,7 +14,7 @@ const Profile = () => {
       <div className="flex flex-col w-3/12 gap-4 items-center p-10 bg-blue-100 rounded-sm min-w-max">
         <button
           className="flex flex-row self-start gap-3 items-center text-black"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/dash")}
         >
           <AiOutlineArrowLeft size={20} />
           Volver
