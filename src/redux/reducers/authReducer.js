@@ -5,6 +5,9 @@ import {
   LOGIN_USER_PENDING,
   LOGIN_USER_REJECTED,
   LOGIN_USER_SUCCESS,
+  RECOVERY_PASSWORD_PENDING,
+  RECOVERY_PASSWORD_REJECTED,
+  RECOVERY_PASSWORD_SUCCESS,
   SIGNUP_USER_PENDING,
   SIGNUP_USER_REJECTED,
   SIGNUP_USER_SUCCESS,
@@ -44,6 +47,12 @@ export const authReducer = (state = initialState, { type, payload }) => {
     case GET_USER_SUCCESS:
       return { ...state, isLoading: false, user: payload, error: null };
     case GET_USER_REJECTED:
+      return { ...state, isLoading: false, user: null, error: payload };
+    case RECOVERY_PASSWORD_PENDING:
+      return { ...state, isLoading: true, user: null, error: null };
+    case RECOVERY_PASSWORD_SUCCESS:
+      return { ...state, isLoading: false, user: payload, error: null };
+    case RECOVERY_PASSWORD_REJECTED:
       return { ...state, isLoading: false, user: null, error: payload };
     default:
       return { ...state };

@@ -7,6 +7,9 @@ import {
   LOGIN_USER_PENDING,
   LOGIN_USER_REJECTED,
   LOGIN_USER_SUCCESS,
+  RECOVERY_PASSWORD_PENDING,
+  RECOVERY_PASSWORD_REJECTED,
+  RECOVERY_PASSWORD_SUCCESS,
   SIGNUP_USER_PENDING,
   SIGNUP_USER_REJECTED,
   SIGNUP_USER_SUCCESS,
@@ -21,7 +24,6 @@ export const login = (payload) => {
     dispatch({ type: LOGIN_USER_PENDING });
     try {
       const { data } = await axios.post(`${URL_BACK + AUTH}/login`, payload);
-      console.log(data);
       localStorage.setItem("userData", data && JSON.stringify(data));
       return dispatch({ type: LOGIN_USER_SUCCESS, payload: data });
     } catch (error) {
@@ -48,7 +50,6 @@ export const signup = (payload) => {
     dispatch({ type: SIGNUP_USER_PENDING });
     try {
       const { data } = await axios.post(`${URL_BACK}${AUTH}/signup`, payload);
-      console.log(data);
       localStorage.setItem("userData", data && JSON.stringify(data));
       return dispatch({ type: SIGNUP_USER_SUCCESS, payload: data });
     } catch (error) {
@@ -57,14 +58,29 @@ export const signup = (payload) => {
   };
 };
 
-export const getUser = () => {
+export const getUser = (payload) => {
   return async function (dispatch) {
     dispatch({ type: GET_USER_PENDING });
     try {
-      const { data } = await axios.get(`${URL_BACK + AUTH}/recover`);
+      const { data } = await axios.post(`${URL_BACK}${AUTH}/getuser`, payload);
       return dispatch({ type: GET_USER_SUCCESS, payload: data });
     } catch (err) {
       return dispatch({ type: GET_USER_REJECTED, payload: err.response });
+    }
+  };
+};
+
+export const recoveryUser = (payload) => {
+  return async function (dispatch) {
+    dispatch({ type: RECOVERY_PASSWORD_PENDING });
+    try {
+      const { data } = await axios.put(`${URL_BACK}${AUTH}/recovery`, payload);
+      return dispatch({ type: RECOVERY_PASSWORD_SUCCESS, payload: data });
+    } catch (err) {
+      return dispatch({
+        type: RECOVERY_PASSWORD_REJECTED,
+        payload: err.response,
+      });
     }
   };
 };
