@@ -46,10 +46,13 @@ El proyecto consta de una aplicación web que permite a los usuarios, registrars
 
 ### 2. Casos de Uso
 
-### Caso de Uso 1: Ordenamientos
-El usuario puede ordenar la tabla, por cada item ya sea idFactura, Cliente, Fecha o Total con sólo hacer click en cada título.
+### Caso de Uso 1: Landing
+Al ingresar al sitio el usuario se encuentra con la landing pudiendo registrarse o bien ingresar con una cuenta previamente registrada. En caso de olvidar su contraseña puede recuperar su cuenta mediante su correo electrónico.
 
-### Caso de Uso 2: Visualización de Datos del Usuario
+### Caso de Uso 2: Ordenamientos
+Una vez logeado el usuario visualiza la tabla pudiendo ordenar la misma, por cada item ya sea idFactura, Cliente, Fecha o Total con sólo hacer click en cada título.
+
+### Caso de Uso 3: Visualización de Datos del Usuario
 
 El usuario puede hacer clic el ícono de perfil para ver y/o editar su propia información.
 El sistema debe mostrar una página con sus datos, incluyendo el acceso a el formulario de edición.
