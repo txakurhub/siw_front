@@ -4,7 +4,7 @@ import { signup } from "../redux/actions/authActions";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import PrimaryButton from "./PrimaryButton";
-import logo from "../assets/siwcargo.png"
+import logo from "../assets/siwcargo.png";
 const SignupForm = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState({
@@ -26,7 +26,6 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(signup(input)).then((res) => {
-      console.log(res);
       if (res?.payload?.email) {
         navigate("/dash");
       } else {
