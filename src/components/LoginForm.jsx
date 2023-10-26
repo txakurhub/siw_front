@@ -32,6 +32,8 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !password)
+      return setErrMsg("Debe completar los campos usuario y password");
     dispatch(login({ email, password })).then((action) => {
       const { type, payload } = action;
       if (type === LOGIN_USER_SUCCESS) {
@@ -115,6 +117,7 @@ const LoginForm = () => {
         <p className="pb-2">Todavía no tienes una cuenta?</p>
 
         <PrimaryButton text="Crear cuenta" to="/signup" primary={false} />
+        <PrimaryButton text="Olvidé mi contraseña" to="/recovery" primary={false} />
       </div>
     </form>
   );
