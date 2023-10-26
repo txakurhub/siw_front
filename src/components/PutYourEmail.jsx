@@ -26,7 +26,6 @@ const PutYourEmail = () => {
   const handleEmailCheck = async (e) => {
     e.preventDefault();
     dispatch(getUser({ email })).then((res) => {
-      console.log(res);
       setPassword(res.payload.password);
       res.type === GET_USER_SUCCESS
         ? setValidEmail(true)
@@ -38,7 +37,6 @@ const PutYourEmail = () => {
     e.preventDefault();
     if (!email) return setErrMsg("Debe escribir un email registrado");
     dispatch(recoveryUser({ email, password, newPassword })).then((res) => {
-      console.log(res);
       if (res.type === RECOVERY_PASSWORD_SUCCESS) {
         alert("Contraseña modificada con éxito");
         navigate("/dash");
@@ -89,7 +87,7 @@ const PutYourEmail = () => {
             required
           />
           <button
-            className="bg-blue-300 hover:bg-blue-100 border-2 border-blue-100"
+            className="bg-blue-300 hover:bg-blue-100 border-2 border-blue-100 px-5 py-2 m-3 font-semibold rounded-lg duration-300"
             onClick={handleEmailCheck}
           >
             Enviar
@@ -107,7 +105,7 @@ const PutYourEmail = () => {
             required
           />
           <button
-            className="bg-blue-300 hover:bg-blue-100 border-2 border-blue-100"
+            className="bg-blue-300 hover:bg-blue-100 border-2 border-blue-100 px-5 py-2 m-3 font-semibold rounded-lg duration-300"
             onClick={handleSubmit}
           >
             Enviar
