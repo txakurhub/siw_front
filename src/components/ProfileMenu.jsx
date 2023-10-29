@@ -10,8 +10,11 @@ const ProfileMenu = () => {
   };
   return (
     <div className="relative">
-      <button onClick={() => setIsOpen(!isOpen)}>
-        <CgProfile size={25} color="blue" />
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="duration-300 text-blue-500 hover:text-black "
+      >
+        <CgProfile size={25} />
       </button>
 
       {/* DATOS DEL USUARIO */}
