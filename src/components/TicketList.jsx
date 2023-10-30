@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTickets } from "../redux/actions/ticketActions";
+import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 
 const TicketList = () => {
   const dispatch = useDispatch();
@@ -53,16 +54,48 @@ const TicketList = () => {
         <thead>
           <tr>
             <th onClick={() => toggleOrderBy("idFactura")}>
-              ID Factura {orderBy === "idFactura" && (ascending ? "▲" : "▼")}
+              <div className="flex flex-row items-center justify-center gap-5">
+                ID Factura{" "}
+                {orderBy === "idFactura" &&
+                  (ascending ? (
+                    <BiSolidUpArrow size={20} />
+                  ) : (
+                    <BiSolidDownArrow size={20} />
+                  ))}
+              </div>
             </th>
             <th onClick={() => toggleOrderBy("cliente")}>
-              Cliente {orderBy === "cliente" && (ascending ? "▲" : "▼")}
+              <div className="flex flex-row items-center justify-center gap-5">
+                Id Cliente{" "}
+                {orderBy === "cliente" &&
+                  (ascending ? (
+                    <BiSolidUpArrow size={20} />
+                  ) : (
+                    <BiSolidDownArrow size={20} />
+                  ))}
+              </div>
             </th>
             <th onClick={() => toggleOrderBy("total")}>
-              Total {orderBy === "total" && (ascending ? "▲" : "▼")}
+              <div className="flex flex-row items-center justify-center gap-5">
+                Total{" "}
+                {orderBy === "total" &&
+                  (ascending ? (
+                    <BiSolidUpArrow size={20} />
+                  ) : (
+                    <BiSolidDownArrow size={20} />
+                  ))}
+              </div>
             </th>
             <th onClick={() => toggleOrderBy("fecha")}>
-              Fecha {orderBy === "fecha" && (ascending ? "▲" : "▼")}
+              <div className="flex flex-row items-center justify-center gap-5">
+                Fecha{" "}
+                {orderBy === "fecha" &&
+                  (ascending ? (
+                    <BiSolidUpArrow size={20} />
+                  ) : (
+                    <BiSolidDownArrow size={20} />
+                  ))}
+              </div>
             </th>
           </tr>
         </thead>
