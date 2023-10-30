@@ -66,5 +66,6 @@ El usuario puede cerrar sesión y volver a la pantalla de inicio (Landing).
 
 En caso de no poseer credenciales para el ingreso el usuario no podrá visualizar la tabla con datos de facturas. El sistema muestra el error en el cuadro de inicio de sesión. <br/>
 En caso de no haber datos de facturas cargadas, el sistema muestra un mensaje indicando el escenario.<br/>
+En caso de demora en la carga, se presentará un loader hasta que se reciban la información de la base de datos.<br/>
 Si no se logra editar la información del usuario satisfactoriamente, el sistema muestra una alerta indicando el fallo.
 
