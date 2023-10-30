@@ -7,6 +7,7 @@ const TicketList = () => {
   const ticket = useSelector((state) => state.ticket);
   const [orderBy, setOrderBy] = useState(null);
   const [ascending, setAscending] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const toggleOrderBy = (column) => {
     if (orderBy === column) {
@@ -18,7 +19,7 @@ const TicketList = () => {
   };
 
   useEffect(() => {
-    dispatch(getTickets());
+    dispatch(getTickets()).then(() => setLoading(false));
   }, [dispatch]);
 
   let clienteA, clienteB, fechaA, fechaB;
@@ -65,16 +66,23 @@ const TicketList = () => {
             </th>
           </tr>
         </thead>
-        <tbody className="">
-          {sortedTickets.map((ticket) => (
-            <tr key={ticket.idFactura} className="bg-blue-100">
-              <td className="border-2 border-white">{ticket.idFactura}</td>
-              <td className="border-2 border-white">{ticket.cliente}</td>
-              <td className="border-2 border-white">{ticket.total}</td>
-              <td className="border-2 border-white">{ticket.fecha}</td>
-            </tr>
-          ))}
-        </tbody>
+        {loading ? (
+          <div className="w-full h-full flex flex-col gap-5 items-center justify-center p-10 m-10">
+            <p>Cargando tabla...</p>
+            <span className="loader"></span>
+          </div>
+        ) : (
+          <tbody className="">
+            {sortedTickets.map((ticket) => (
+              <tr key={ticket.idFactura} className="bg-blue-100">
+                <td className="border-2 border-white">{ticket.idFactura}</td>
+                <td className="border-2 border-white">{ticket.cliente}</td>
+                <td className="border-2 border-white">{ticket.total}</td>
+                <td className="border-2 border-white">{ticket.fecha}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
     </div>
   );
